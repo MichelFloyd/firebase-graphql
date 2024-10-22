@@ -1,15 +1,28 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "outDir": "lib",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+    "lib": ["es2020"],
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ] /* TBD: the aliases work in the editor but not at runtime */
+    },
+    "outDir": "dist",
+    "pretty": true,
+    "target": "es5",
+    "rootDirs": ["src"],
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
     "sourceMap": true,
+    "types": ["node"],
+
+    /* Linting */
     "strict": true,
-    "target": "es2017"
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "compileOnSave": true,
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
