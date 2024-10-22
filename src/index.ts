@@ -1,4 +1,5 @@
-// npm install @apollo/server express graphql cors
+import * as functions from 'firebase-functions';
+
 import { ApolloServer } from '@apollo/server';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 import cors from 'cors';
@@ -8,7 +9,7 @@ import http from 'http';
 import { resolvers } from './resolvers';
 import { typeDefs } from './schema';
 
-const port = 4001;
+//const port = 4001;
 
 interface MyContext {
   token?: string;
@@ -45,9 +46,6 @@ server.start().then(() => {
       },
     })
   );
-
-  // Modified server startup
-  httpServer.listen({ port }, () =>
-    console.log(`🚀 Server ready at http://localhost:${port}`)
-  );
 });
+
+export const graphql = functions.https.onRequest(app);
