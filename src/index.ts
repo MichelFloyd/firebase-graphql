@@ -9,8 +9,6 @@ import http from 'http';
 import { resolvers } from './resolvers';
 import { typeDefs } from './schema';
 
-//const port = 4001;
-
 interface MyContext {
   token?: string;
 }
