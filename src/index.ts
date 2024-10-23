@@ -41,7 +41,7 @@ server.start().then(() => {
     // expressMiddleware accepts the same arguments:
     // an Apollo Server instance and optional configuration options
     expressMiddleware(server, {
-      context: async ({ req }) => {
+      context: async ({ req }: { req: any }) => {
         console.log(req);
         return { token: req.headers.token };
       },
